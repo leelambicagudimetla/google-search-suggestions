@@ -1,0 +1,10 @@
+/* Write your CSS here */
+.user-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.profile-pic {
+  max-width: 50px;
+  max-height: 50px;
+}
