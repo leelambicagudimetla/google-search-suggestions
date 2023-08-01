@@ -16,6 +16,14 @@ class GoogleSuggestions extends Component {
     })
   }
 
+  deleteUser = id => {
+    const {suggestionsList} = this.state
+    const filterDetails = suggestionsList.filter(each => each.id === id)
+    this.setState({
+      suggestionsList: filterDetails,
+    })
+  }
+
   render() {
     const {suggestionsList, searchInput} = this.state
     const searchResults = suggestionsList.filter(each =>
@@ -42,7 +50,11 @@ class GoogleSuggestions extends Component {
           />
           <ul className="list-of-search">
             {searchResults.map(each => (
-              <SuggestionItem details={each} key={each.id} />
+              <SuggestionItem
+                details={each}
+                deleteUser={this.deleteUser}
+                key={each.id}
+              />
             ))}
           </ul>
         </div>

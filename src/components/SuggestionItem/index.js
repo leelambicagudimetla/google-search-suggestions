@@ -2,8 +2,12 @@
 import './index.css'
 
 const SuggestionItem = props => {
-  const {details} = props
-  const {suggestion} = details
+  const {details, deleteUser} = props
+  const {suggestion, id} = details
+
+  const onDelete = () => {
+    deleteUser(id)
+  }
 
   return (
     <li className="user-card-container">
@@ -12,6 +16,7 @@ const SuggestionItem = props => {
         src="https://assets.ccbp.in/frontend/react-js/diagonal-arrow-left-up.png"
         className="profile-pic"
         alt="arrow"
+        onClick={onDelete}
       />
     </li>
   )
